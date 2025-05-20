@@ -1,0 +1,40 @@
+{
+    "domain_of": {
+        "Manufacturer": ["Compaq", "HP", "Sony"],
+        "Monitor": [10, 14, 15, 17],
+        "Type": ["Laptop", "Desktop", "Tower"],
+        "Memory": [64, 128, 256, 512, 1024, 2048]
+    },
+
+    "_comment_costs": [
+        "Monitor cost is 6*size",
+        "Memory cost is 0.8*memory"
+    ],
+
+    "costs_of": {
+        "Manufacturer": [0, 0, 50],
+        "Monitor": [60.0, 84.0, 90.0, 102.0],
+        "Type": [50, 0, 80],
+        "Memory": [51.2, 102.4, 204.8, 409.6, 819.2, 1638.4]
+    },
+
+    "constraints": {
+        "manufacturer->type": [
+            [["Manufacturer", ["Compaq"]], ["Type", ["Laptop", "Desktop"]]],
+            [["Manufacturer", ["HP"]], ["Type", ["Desktop"]]],
+            [["Manufacturer", ["Sony"]], ["Type", ["Laptop", "Tower"]]]
+        ],
+        "type->memory": [
+            [["Type", ["Laptop"]], ["Memory", [64, 128, 256]]],
+            [["Type", ["Desktop"]], ["Memory", [128, 256, 512, 1024]]],
+            [["Type", ["Tower"]], ["Memory", [256, 512, 1024, 2048]]]
+        ],
+        "type->monitor": [
+            [["Type", ["Desktop", "Tower"]], ["Monitor", [15, 17]]],
+            [["Type", ["Laptop"]], ["Monitor", [10, 14, 15]]]
+        ]
+    }
+    
+}
+
+           

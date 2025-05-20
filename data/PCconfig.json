@@ -1,0 +1,143 @@
+{
+    "domain_of": {
+        "Manufacturer": [
+            "Apple", "Compaq", "Dell", "Fujitsu", "Gateway", "HP", "Sony",
+            "Toshiba"
+        ],
+        "CPU": [
+            "AMD Athlon @1000", "AMD Athlon @1330",
+            "AMD Duron @700", "AMD Duron @900",
+            "Crusoe @800",
+            "Intel Celeron @500", "Intel Celeron @600",
+            "Intel Celeron @800", "Intel Celeron @900",
+            "Intel Celeron @1000", "Intel Celeron @1100",
+            "Intel Celeron @1200", "Intel Celeron @1300",
+            "Intel Celeron @1400", "Intel Celeron @1700",
+            "Intel Pentium @500", "Intel Pentium @600",
+            "Intel Pentium @800", "Intel Pentium @900",
+            "Intel Pentium @1000", "Intel Pentium @1100",
+            "Intel Pentium @1300", "Intel Pentium @1500",
+            "Intel Pentium @1600", "Intel Pentium @1700",
+            "Intel Pentium @1800", "Intel Pentium @2200",
+            "PowerPC G3 @266", "PowerPC G3 @300", "PowerPC G3 @400",
+            "PowerPC G3 @450", "PowerPC G3 @500", "PowerPC G3 @550",
+            "PowerPC G3 @600", "PowerPC G3 @700",
+            "PowerPC G4 @700", "PowerPC G4 @733"
+        ],
+        "Monitor": [10, 10.4, 12, 13.3, 14, 15, 17, 21],
+        "Type": ["Laptop", "Desktop", "Tower"],
+        "Memory": [64, 128, 160, 192, 256, 320, 384, 512, 1024, 2048],
+        "HDSize": [8, 10, 12, 15, 20, 30, 40, 60, 80, 120]
+    },
+
+    "_comment_costs": [
+        "CPU cost is frequency times a manufacturer-dependant factor", 
+        "[AMD Athlon: 1.4, AMD Duron: 1.1, Crusoe: 1.2, Intel Celeron:1.2, Intel Pentium: 1.5, Power PC G3: 1.4, PowerPC G4: 1.6]",
+        "Monitor cost is 6*size",
+        "Memory cost is 0.8*memory",
+        "HDSize cost is 4*HDSize"
+    ],
+
+    "costs_of": {
+        "Manufacturer": [100, 0, 100, 50, 0, 0, 50, 50],
+        "CPU": [140.0, 182.0,
+        77.0, 99.0,
+        96.0,
+        60.0, 72.0, 96.0, 108.0, 120.0, 132.0, 144.0, 156.0, 168.0, 204.0,
+        75.0, 90.0, 120.0, 135.0, 150.0, 165.0, 195.0, 225.0, 240.0, 255.0, 270.0, 330.0,
+        37.8, 42.0, 56.0, 63.0, 70.0, 77.0, 84.0, 98.0,
+        112.0, 116.8],
+        "Monitor": [60.0, 62.4, 72.0, 79.8, 84.0, 90.0, 102.0, 126.0],
+        "Type": [50, 0, 80],
+        "Memory": [51.2, 102.4, 128.0, 153.6, 204.8, 256.0, 307.2,
+        409.6, 819.2, 1638.4],
+        "HDSize": [32, 40, 48, 60, 80, 120, 160, 240, 320, 480]
+    },
+
+    "constraints": {
+        "manufacturer->type": [
+            [["Manufacturer", ["Compaq"]], ["Type", ["Laptop", "Desktop"]]],
+            [["Manufacturer", ["Fujitsu"]], ["Type", ["Laptop"]]],
+            [["Manufacturer", ["HP"]], ["Type", ["Desktop"]]],
+            [["Manufacturer", ["Sony"]], ["Type", ["Laptop", "Tower"]]]
+        ],
+        "manufacturer->CPU":[
+            [["Manufacturer", ["Apple"]], ["CPU", [
+                "PowerPC G3 @266", "PowerPC G3 @300", "PowerPC G3 @400",
+                "PowerPC G3 @450", "PowerPC G3 @500", "PowerPC G3 @550",
+                "PowerPC G3 @600", "PowerPC G3 @700",
+                "PowerPC G4 @700", "PowerPC G4 @733"]
+            ]],
+            [["Manufacturer", ["Compaq", "Sony"]], ["CPU", [
+                "AMD Athlon @1000", "AMD Athlon @1330",
+                "AMD Duron @700", "AMD Duron @900",
+                "Intel Celeron @500", "Intel Celeron @600",
+                "Intel Celeron @800", "Intel Celeron @900",
+                "Intel Celeron @1000", "Intel Celeron @1100",
+                "Intel Celeron @1200", "Intel Celeron @1300",
+                "Intel Celeron @1400", "Intel Celeron @1700",
+                "Intel Pentium @500", "Intel Pentium @600",
+                "Intel Pentium @800", "Intel Pentium @900",
+                "Intel Pentium @1000", "Intel Pentium @1100",
+                "Intel Pentium @1300", "Intel Pentium @1500",
+                "Intel Pentium @1600", "Intel Pentium @1700",
+                "Intel Pentium @1800", "Intel Pentium @2200"
+                ]
+            ]],
+            [["Manufacturer", ["Fujitsu"]], ["CPU", [
+                "Crusoe @800",
+                "Intel Celeron @500", "Intel Celeron @600",
+                "Intel Celeron @800", "Intel Celeron @900",
+                "Intel Celeron @1000", "Intel Celeron @1100",
+                "Intel Celeron @1200", "Intel Celeron @1300",
+                "Intel Celeron @1400", "Intel Celeron @1700",
+                "Intel Pentium @500", "Intel Pentium @600",
+                "Intel Pentium @800", "Intel Pentium @900",
+                "Intel Pentium @1000", "Intel Pentium @1100",
+                "Intel Pentium @1300", "Intel Pentium @1500",
+                "Intel Pentium @1600", "Intel Pentium @1700",
+                "Intel Pentium @1800", "Intel Pentium @2200"
+                ]
+            ]],
+            [["Manufacturer", ["Dell", "Gateway", "Toshiba"]], ["CPU", [
+                "Intel Celeron @500", "Intel Celeron @600",
+                "Intel Celeron @800", "Intel Celeron @900",
+                "Intel Celeron @1000", "Intel Celeron @1100",
+                "Intel Celeron @1200", "Intel Celeron @1300",
+                "Intel Celeron @1400", "Intel Celeron @1700",
+                "Intel Pentium @500", "Intel Pentium @600",
+                "Intel Pentium @800", "Intel Pentium @900",
+                "Intel Pentium @1000", "Intel Pentium @1100",
+                "Intel Pentium @1300", "Intel Pentium @1500",
+                "Intel Pentium @1600", "Intel Pentium @1700",
+                "Intel Pentium @1800", "Intel Pentium @2200"
+                ]
+            ]],
+            [["Manufacturer", ["HP"]], ["CPU", [
+                "Intel Pentium @500", "Intel Pentium @600",
+                "Intel Pentium @800", "Intel Pentium @900",
+                "Intel Pentium @1000", "Intel Pentium @1100",
+                "Intel Pentium @1300", "Intel Pentium @1500",
+                "Intel Pentium @1600", "Intel Pentium @1700",
+                "Intel Pentium @1800", "Intel Pentium @2200"
+                ]
+            ]]
+        ],
+        "type->memory": [
+            [["Type", ["Laptop"]], ["Memory", [64, 128, 160, 192, 256, 320, 384, 512, 1024]]],
+            [["Type", ["Desktop"]], ["Memory", [128, 256, 512, 1024]]],
+            [["Type", ["Tower"]], ["Memory", [256, 512, 1024, 2048]]]
+        ],
+        "type->HDSize": [
+            [["Type", ["Desktop", "Tower"]], ["HDSize", [20, 30, 40, 60, 80, 120]]],
+            [["Type", ["Laptop"]], ["HDSize", [8, 10, 12, 15, 20, 30]]]
+        ],
+        "type->monitor": [
+            [["Type", ["Desktop", "Tower"]], ["Monitor", [15, 17, 21]]],
+            [["Type", ["Laptop"]], ["Monitor", [10, 10.4, 12, 13.3, 14, 15]]]
+        ]
+    }
+    
+}
+
+           
